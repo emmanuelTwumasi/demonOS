@@ -183,6 +183,7 @@
   const contactForm = document.getElementById('contactForm');
   const nameInput = document.getElementById('contactName');
   const emailInput = document.getElementById('contactEmail');
+  const subjectInput = document.getElementById('contactSubject');
   const messageInput = document.getElementById('contactMessage');
   const nameError = document.getElementById('nameError');
   const emailError = document.getElementById('emailError');
@@ -203,17 +204,22 @@
       emailError.textContent = '';
       messageError.textContent = '';
 
-      if (!nameInput.value.trim() || nameInput.value.trim().length < 2) {
+      const nameVal = nameInput ? nameInput.value.trim() : '';
+      const emailVal = emailInput ? emailInput.value.trim() : '';
+      const subjectVal = subjectInput ? subjectInput.value.trim() : '';
+      const messageVal = messageInput ? messageInput.value.trim() : '';
+
+      if (!nameVal || nameVal.length < 2) {
         nameError.textContent = 'Please enter your name (at least 2 characters).';
         isValid = false;
       }
 
-      if (!emailInput.value.trim() || !validateEmail(emailInput.value.trim())) {
+      if (!emailVal || !validateEmail(emailVal)) {
         emailError.textContent = 'Please enter a valid email address.';
         isValid = false;
       }
 
-      if (!messageInput.value.trim() || messageInput.value.trim().length < 8) {
+      if (!messageVal || messageVal.length < 8) {
         messageError.textContent = 'Please enter a message (at least 8 characters).';
         isValid = false;
       }
@@ -222,14 +228,51 @@
         const submitBtn = document.getElementById('submitBtn');
         const originalText = submitBtn.innerHTML;
         submitBtn.disabled = true;
-        submitBtn.innerHTML = '<span>Sending...</span>';
+        submitBtn.innerHTML = '<span>Sending message...</span>';
 
-        setTimeout(() => {
-          showToast('Thank you, Emmanuel! Your message was submitted successfully.', 'success');
+        const subjectLine = subjectVal
+          ? `[Portfolio Contact] ${subjectVal} - from ${nameVal}`
+          : `[Portfolio Contact] New message from ${nameVal}`;
+
+        const payload = {
+          name: nameVal,
+          email: emailVal,
+          _subject: subjectLine,
+          _replyto: emailVal,
+          message: messageVal,
+          _captcha: "false"
+        };
+
+        fetch('https://formsubmit.co/ajax/protwumasi@gmail.com', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          },
+          body: JSON.stringify(payload)
+        })
+        .then(response => {
+          if (response.ok) {
+            return response.json();
+          }
+          throw new Error('Network error or endpoint unavailable');
+        })
+        .then(() => {
+          showToast('Message sent! It will be delivered directly to protwumasi@gmail.com.', 'success');
           contactForm.reset();
+        })
+        .catch(() => {
+          // Fallback to mailto if fetch is blocked or user is offline
+          const mailtoSubject = encodeURIComponent(subjectLine);
+          const mailtoBody = encodeURIComponent(`From: ${nameVal} (${emailVal})\n\n${messageVal}`);
+          window.location.href = `mailto:protwumasi@gmail.com?subject=${mailtoSubject}&body=${mailtoBody}`;
+          showToast('Opening your email client to send message to protwumasi@gmail.com', 'success');
+          contactForm.reset();
+        })
+        .finally(() => {
           submitBtn.disabled = false;
           submitBtn.innerHTML = originalText;
-        }, 600);
+        });
       }
     });
   }
