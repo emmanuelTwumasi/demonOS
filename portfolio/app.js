@@ -144,7 +144,7 @@
   // =========================================================================
   // 5. Copy Email Utilities
   // =========================================================================
-  const emailToCopy = 'emmanuel@example.com';
+  const emailToCopy = 'protwumasi@gmail.com';
 
   function copyEmailToClipboard() {
     if (navigator.clipboard && navigator.clipboard.writeText) {
