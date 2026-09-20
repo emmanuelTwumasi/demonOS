@@ -1,0 +1,36 @@
+{
+  "items": [
+    {
+      "id": "INBOX-001",
+      "task_id": "TASK-001",
+      "category": "APPROVAL_GATE",
+      "severity": "HIGH",
+      "status": "RESOLVED",
+      "summary": "Gate 1: Review & Approve Spec for TASK-001 (Personal Portfolio Website for Emmanuel Twumasi)",
+      "details": "Spec generated at /Users/EmmanuelTwumasi/Documents/demonOS/.demon/specs/SPEC-TASK-001.md. Check requirements, scope boundaries, and acceptance criteria.",
+      "options": [
+        "Approve Spec (Proceed to Plan & Code)",
+        "Request Revisions"
+      ],
+      "created_at": "2026-09-20T22:27:23.550020+00:00",
+      "resolved_at": "2026-09-20T22:29:35.640507+00:00",
+      "resolution": "Approved"
+    },
+    {
+      "id": "INBOX-002",
+      "task_id": "TASK-001",
+      "category": "APPROVAL_GATE",
+      "severity": "HIGH",
+      "status": "OPEN",
+      "summary": "Gate 2: Final Delivery Approval for Portfolio Website (TASK-001)",
+      "details": "Feature implemented, all 11 gauntlet tests passed, and senior review completed in .demon/reviews/REVIEW-TASK-001.md.",
+      "options": [
+        "Approve and Mark DONE",
+        "Request Adjustments"
+      ],
+      "created_at": "2026-09-20T22:30:49.388191+00:00",
+      "resolved_at": null,
+      "resolution": null
+    }
+  ]
+}

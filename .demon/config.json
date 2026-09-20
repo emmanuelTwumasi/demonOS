@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "description": "Autonomous Agent Workflow System",
   "gauntlet": {
-    "test_command": "python3 -m unittest discover -s tests -p '*_test.py'",
-    "lint_command": "python3 -m py_compile $(git ls-files '*.py')",
+    "test_command": "python3 -m unittest discover -s tests -p 'test_*.py'",
+    "lint_command": "python3 -m py_compile $(git ls-files '*.py' 2>/dev/null) && node -c portfolio/app.js",
     "typecheck_command": "",
     "build_command": ""
   },

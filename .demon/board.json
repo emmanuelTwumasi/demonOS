@@ -1,6 +1,6 @@
 {
   "project": "demonOS",
-  "updated_at": "2026-09-20T22:16:30.216355+00:00",
+  "updated_at": "2026-09-20T22:30:49.387774+00:00",
   "stages": [
     "BACKLOG",
     "SPEC_DRAFTING",
@@ -10,5 +10,18 @@
     "PENDING_REVIEW_APPROVAL",
     "DONE"
   ],
-  "tasks": []
+  "tasks": [
+    {
+      "id": "TASK-001",
+      "title": "Personal Portfolio Website for Emmanuel Twumasi",
+      "description": "Modern, elegant, high-performance personal developer portfolio website featuring hero introduction, about section, featured projects showcase, skills matrix, interactive theme toggle, and contact section.",
+      "priority": "HIGH",
+      "stage": "PENDING_REVIEW_APPROVAL",
+      "created_at": "2026-09-20T22:27:23.548938+00:00",
+      "updated_at": "2026-09-20T22:30:49.387610+00:00",
+      "spec_file": ".demon/specs/SPEC-TASK-001.md",
+      "plan_file": ".demon/plans/PLAN-TASK-001.md",
+      "review_file": ".demon/reviews/REVIEW-TASK-001.md"
+    }
+  ]
 }
