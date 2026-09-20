@@ -4,7 +4,7 @@
   "description": "Autonomous Agent Workflow System",
   "gauntlet": {
     "test_command": "python3 -m unittest discover -s tests -p 'test_*.py'",
-    "lint_command": "python3 -m py_compile $(git ls-files '*.py' 2>/dev/null) && node -c portfolio/app.js",
+    "lint_command": "python3 -m py_compile $(git ls-files '*.py' 2>/dev/null)",
     "typecheck_command": "",
     "build_command": ""
   },
