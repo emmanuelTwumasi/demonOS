@@ -1,6 +1,6 @@
 {
   "project": "demonOS",
-  "updated_at": "2026-09-20T23:10:12.432845+00:00",
+  "updated_at": "2026-09-20T23:18:22.712027+00:00",
   "stages": [
     "BACKLOG",
     "SPEC_DRAFTING",
@@ -22,6 +22,18 @@
       "spec_file": ".demon/specs/SPEC-TASK-001.md",
       "plan_file": ".demon/plans/PLAN-TASK-001.md",
       "review_file": ".demon/reviews/REVIEW-TASK-001.md"
+    },
+    {
+      "id": "TASK-002",
+      "title": "Portfolio Enhancements, Real GitHub Integration & GitHub Pages CI/CD",
+      "description": "Integrate Emmanuel's real GitHub avatar and repositories, add schema.org JSON-LD Person schema, robots.txt, sitemap.xml, printable CV stylesheet, project detail modal, and automated GitHub Actions Pages deployment pipeline.",
+      "priority": "HIGH",
+      "stage": "DONE",
+      "created_at": "2026-09-20T23:15:33.054031+00:00",
+      "updated_at": "2026-09-20T23:18:22.711899+00:00",
+      "spec_file": ".demon/specs/SPEC-TASK-002.md",
+      "plan_file": ".demon/plans/PLAN-TASK-002.md",
+      "review_file": ".demon/reviews/REVIEW-TASK-002.md"
     }
   ]
 }

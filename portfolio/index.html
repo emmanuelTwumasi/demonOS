@@ -13,6 +13,36 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  
+  <!-- Schema.org JSON-LD for Search Engines & AI Crawlers -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Emmanuel Twumasi",
+    "url": "https://emmanuelTwumasi.github.io",
+    "image": "https://avatars.githubusercontent.com/u/58420781?v=4",
+    "sameAs": [
+      "https://github.com/emmanuelTwumasi",
+      "https://linkedin.com"
+    ],
+    "jobTitle": "Full-Stack Engineer & Autonomous Systems Builder",
+    "worksFor": {
+      "@type": "Organization",
+      "name": "Autonomous Engineering Innovations"
+    },
+    "knowsAbout": [
+      "Full-Stack Web Development",
+      "Autonomous AI Agents",
+      "Software Architecture",
+      "TypeScript",
+      "Python",
+      "Distributed Systems",
+      "Verification Gauntlet Testing"
+    ],
+    "description": "Full-Stack Engineer & Autonomous Systems Builder specializing in clean software architecture, closed-loop agent workflows, and distributed backends."
+  }
+  </script>
 </head>
 <body>
   <!-- Header & Navigation -->
@@ -48,6 +78,11 @@
           </svg>
         </button>
 
+        <button id="printCvBtn" class="btn btn-secondary sm-hide" aria-label="Print or save CV" title="Print / Save CV">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9V2h12v7"></path><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
+          <span>CV / Resume</span>
+        </button>
+
         <a href="#contact" class="btn btn-primary sm-hide">Let's Talk</a>
 
         <button id="mobileMenuBtn" class="hamburger-btn" aria-label="Open navigation menu" aria-expanded="false" aria-controls="navMenu">
@@ -64,8 +99,14 @@
     <section class="section hero-section" id="hero">
       <div class="container hero-container">
         <div class="hero-content">
-          <div class="hero-badge">
-            <span class="status-dot"></span> Available for engineering roles & consulting
+          <div class="hero-header-meta">
+            <div class="hero-avatar-wrap">
+              <img src="https://avatars.githubusercontent.com/u/58420781?v=4" alt="Emmanuel Twumasi" class="hero-avatar-img" width="64" height="64" loading="eager">
+              <span class="avatar-status-dot" title="Active"></span>
+            </div>
+            <div class="hero-badge">
+              <span class="status-dot"></span> Available for engineering roles & consulting
+            </div>
           </div>
           <h1 class="hero-title">
             Hi, I'm <span class="highlight-text">Emmanuel Twumasi</span>
@@ -295,8 +336,8 @@
 
         <!-- Projects Grid -->
         <div class="projects-grid" id="projectsGrid">
-          <!-- Project 1 -->
-          <article class="project-card" data-category="ai-systems">
+          <!-- Project 1: demonOS -->
+          <article class="project-card" data-category="ai-systems" data-project-id="demonos">
             <div class="project-card-banner">
               <span class="project-category-badge">AI & Systems</span>
               <div class="project-icon-art" aria-hidden="true">
@@ -306,7 +347,7 @@
             <div class="project-card-body">
               <h3 class="project-title">demonOS Autonomous Agent Framework</h3>
               <p class="project-desc">
-                An autonomous closed-loop agent operating system inspired by Danny Postma's AgentOS. Automates intake, spec creation, 2-gate approvals, self-healing test gauntlets, and code delivery.
+                An autonomous closed-loop agent operating framework inspired by Danny Postma's AgentOS. Automates intake, spec creation, 2-gate human approvals, self-healing test gauntlets, and zero-friction delivery.
               </p>
               <div class="project-tags">
                 <span class="tech-pill">Python</span>
@@ -314,94 +355,110 @@
                 <span class="tech-pill">CLI State Machine</span>
                 <span class="tech-pill">Self-Healing</span>
               </div>
-              <div class="project-links">
-                <a href="https://github.com/emmanuelTwumasi" target="_blank" rel="noopener noreferrer" class="project-link">
-                  <span>Source Code</span>
-                  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+              <div class="project-actions-row">
+                <button class="btn btn-secondary btn-sm open-modal-btn" data-project-id="demonos" aria-label="View architecture of demonOS">
+                  <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+                  <span>Architecture</span>
+                </button>
+                <a href="https://github.com/emmanuelTwumasi/demonOS" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="View demonOS on GitHub">
+                  <span>GitHub</span>
+                  <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
                 </a>
               </div>
             </div>
           </article>
 
-          <!-- Project 2 -->
-          <article class="project-card" data-category="fullstack">
+          <!-- Project 2: Banking Application -->
+          <article class="project-card" data-category="fullstack" data-project-id="banking">
             <div class="project-card-banner">
-              <span class="project-category-badge">Full-Stack</span>
+              <span class="project-category-badge">Full-Stack Core</span>
               <div class="project-icon-art" aria-hidden="true">
-                <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"></polyline><polyline points="1 20 1 14 7 14"></polyline><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path></svg>
+                <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"></rect><line x1="2" y1="10" x2="22" y2="10"></line></svg>
               </div>
             </div>
             <div class="project-card-body">
-              <h3 class="project-title">OmniFlow Cloud Task Engine</h3>
+              <h3 class="project-title">Secure Banking Transaction Ledger</h3>
               <p class="project-desc">
-                Distributed job orchestration platform featuring real-time websocket monitoring, task queue concurrency limits, dead-letter recovery, and an interactive telemetry dashboard.
+                High-integrity banking transaction application built with double-entry accounting principles, transactional ACID guarantees, tokenized authentication, and tamper-resistant transaction logging.
               </p>
               <div class="project-tags">
-                <span class="tech-pill">TypeScript</span>
-                <span class="tech-pill">Node.js</span>
-                <span class="tech-pill">Redis</span>
+                <span class="tech-pill">Java</span>
+                <span class="tech-pill">Spring Boot</span>
                 <span class="tech-pill">PostgreSQL</span>
+                <span class="tech-pill">ACID Transactions</span>
               </div>
-              <div class="project-links">
-                <a href="https://github.com/emmanuelTwumasi" target="_blank" rel="noopener noreferrer" class="project-link">
-                  <span>GitHub Repo</span>
-                  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+              <div class="project-actions-row">
+                <button class="btn btn-secondary btn-sm open-modal-btn" data-project-id="banking" aria-label="View architecture of Banking Ledger">
+                  <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+                  <span>Architecture</span>
+                </button>
+                <a href="https://github.com/emmanuelTwumasi/banking_application" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="View Banking Application on GitHub">
+                  <span>GitHub</span>
+                  <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
                 </a>
               </div>
             </div>
           </article>
 
-          <!-- Project 3 -->
-          <article class="project-card" data-category="ai-systems">
+          <!-- Project 3: ProTwum -->
+          <article class="project-card" data-category="fullstack" data-project-id="protwum">
             <div class="project-card-banner">
-              <span class="project-category-badge">AI & Systems</span>
+              <span class="project-category-badge">Web Architecture</span>
               <div class="project-icon-art" aria-hidden="true">
-                <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m18 16 4-4-4-4"></path><path d="m6 8-4 4 4 4"></path><path d="m14.5 4-5 16"></path></svg>
+                <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>
               </div>
             </div>
             <div class="project-card-body">
-              <h3 class="project-title">Synthetix AI Code Reviewer</h3>
+              <h3 class="project-title">ProTwum Personal Ecosystem</h3>
               <p class="project-desc">
-                Automated pull request analysis bot that checks AST syntax, security vulnerabilities, secret leaks, and architectural regressions with zero developer interruption.
+                Clean, modern personal web ecosystem and developer documentation platform engineered for sub-50ms paint times, full keyboard accessibility, and zero-dependency client interactivity.
               </p>
               <div class="project-tags">
-                <span class="tech-pill">Python</span>
-                <span class="tech-pill">AST Analysis</span>
-                <span class="tech-pill">Docker</span>
-                <span class="tech-pill">GitHub Actions</span>
+                <span class="tech-pill">JavaScript</span>
+                <span class="tech-pill">CSS Architecture</span>
+                <span class="tech-pill">Accessible UI</span>
+                <span class="tech-pill">SEO & Perf</span>
               </div>
-              <div class="project-links">
-                <a href="https://github.com/emmanuelTwumasi" target="_blank" rel="noopener noreferrer" class="project-link">
-                  <span>GitHub Repo</span>
-                  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+              <div class="project-actions-row">
+                <button class="btn btn-secondary btn-sm open-modal-btn" data-project-id="protwum" aria-label="View architecture of ProTwum">
+                  <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+                  <span>Architecture</span>
+                </button>
+                <a href="https://github.com/emmanuelTwumasi/protwum" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="View ProTwum on GitHub">
+                  <span>GitHub</span>
+                  <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
                 </a>
               </div>
             </div>
           </article>
 
-          <!-- Project 4 -->
-          <article class="project-card" data-category="tools">
+          <!-- Project 4: Android1 -->
+          <article class="project-card" data-category="tools" data-project-id="android1">
             <div class="project-card-banner">
-              <span class="project-category-badge">Developer Tools</span>
+              <span class="project-category-badge">Mobile Engineering</span>
               <div class="project-icon-art" aria-hidden="true">
-                <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line></svg>
               </div>
             </div>
             <div class="project-card-body">
-              <h3 class="project-title">DevVault Encrypted Secret Store</h3>
+              <h3 class="project-title">Android Native Client Engine</h3>
               <p class="project-desc">
-                Lightweight CLI and zero-knowledge local secret manager utilizing authenticated AES-GCM-256 encryption and biometric access controls.
+                Native Android application built with modern architecture patterns, clean MVVM component separation, Room/SQLite offline persistence, and fluid hardware-accelerated animations.
               </p>
               <div class="project-tags">
-                <span class="tech-pill">Go</span>
-                <span class="tech-pill">Cryptography</span>
-                <span class="tech-pill">CLI</span>
-                <span class="tech-pill">Zero-Trust</span>
+                <span class="tech-pill">Java / Kotlin</span>
+                <span class="tech-pill">Android SDK</span>
+                <span class="tech-pill">MVVM</span>
+                <span class="tech-pill">Room DB</span>
               </div>
-              <div class="project-links">
-                <a href="https://github.com/emmanuelTwumasi" target="_blank" rel="noopener noreferrer" class="project-link">
-                  <span>GitHub Repo</span>
-                  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+              <div class="project-actions-row">
+                <button class="btn btn-secondary btn-sm open-modal-btn" data-project-id="android1" aria-label="View architecture of Android Client">
+                  <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+                  <span>Architecture</span>
+                </button>
+                <a href="https://github.com/emmanuelTwumasi/Android1" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="View Android1 on GitHub">
+                  <span>GitHub</span>
+                  <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
                 </a>
               </div>
             </div>
@@ -555,6 +612,45 @@
       </div>
     </section>
   </main>
+
+  <!-- Project Architecture Modal -->
+  <div id="projectModal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="modalTitle" aria-hidden="true">
+    <div class="modal-card">
+      <div class="modal-header">
+        <div class="modal-header-text">
+          <span class="modal-category" id="modalCategory">System Architecture</span>
+          <h3 class="modal-title" id="modalTitle">Project Title</h3>
+        </div>
+        <button id="closeModalBtn" class="icon-btn modal-close-btn" aria-label="Close dialog">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p class="modal-desc" id="modalDesc"></p>
+        <div class="modal-section">
+          <h4 class="modal-section-title">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+            Key Architectural Highlights
+          </h4>
+          <ul class="modal-highlights" id="modalHighlights"></ul>
+        </div>
+        <div class="modal-section">
+          <h4 class="modal-section-title">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+            Technologies & Frameworks
+          </h4>
+          <div class="project-tags" id="modalTags"></div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <a href="#" id="modalGithubLink" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+          <span>View on GitHub</span>
+        </a>
+        <button id="modalCloseBtnFooter" class="btn btn-secondary">Close</button>
+      </div>
+    </div>
+  </div>
 
   <!-- Toast Notification Container -->
   <div id="toastContainer" class="toast-container" aria-live="assertive"></div>

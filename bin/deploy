@@ -1,0 +1,33 @@
+#!/usr/bin/env bash
+set -e
+
+echo "============================================================"
+echo "  demonOS One-Click Deploy to GitHub & GitHub Pages"
+echo "============================================================"
+
+# 1. Run Verification Gauntlet first
+echo "🛡️  Running Verification Gauntlet..."
+./bin/demon verify
+
+# 2. Check remote
+if ! git remote | grep -q "origin"; then
+    echo "⚠️  No git remote 'origin' configured."
+    echo "Configuring origin to https://github.com/emmanuelTwumasi/demonOS.git ..."
+    git remote add origin https://github.com/emmanuelTwumasi/demonOS.git
+fi
+
+REMOTE_URL=$(git remote get-url origin)
+echo "📡 Remote Origin: $REMOTE_URL"
+
+# 3. Push to GitHub
+BRANCH=$(git rev-parse --abbrev-ref HEAD)
+echo "🚀 Pushing branch '$BRANCH' to GitHub..."
+git push -u origin "$BRANCH"
+
+echo ""
+echo "============================================================"
+echo "  🎉 Successfully pushed to GitHub!"
+echo "  GitHub Actions will now automatically publish to GitHub Pages."
+echo "  Repository: https://github.com/emmanuelTwumasi/demonOS"
+echo "  Settings -> Pages: Enable 'GitHub Actions' as source."
+echo "============================================================"

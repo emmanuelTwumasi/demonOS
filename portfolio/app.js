@@ -326,6 +326,149 @@
     sections.forEach(sec => observer.observe(sec));
   }
 
+  // =========================================================================
+  // 9. Print / Save CV Action
+  // =========================================================================
+  const printCvBtn = document.getElementById('printCvBtn');
+  if (printCvBtn) {
+    printCvBtn.addEventListener('click', () => {
+      window.print();
+    });
+  }
+
+  // =========================================================================
+  // 10. Project Architecture Modal
+  // =========================================================================
+  const projectDetails = {
+    demonos: {
+      category: 'Autonomous AI Framework',
+      title: 'demonOS Autonomous Agent Framework',
+      description: 'A finite-state autonomous agent operating framework inspired by Danny Postma\'s AgentOS. Built to empower coding assistants with a closed-loop execution contract: intake, rigorous spec generation, 2-gate human approval, deterministic test verification, and automated git delivery.',
+      highlights: [
+        'Deterministic 5-stage lifecycle state machine (SPEC_DRAFTING -> APPROVAL -> IN_PROGRESS -> IN_REVIEW -> DONE)',
+        'Autonomous self-healing verification gauntlet with automatic log triage up to 3 repair iterations',
+        'Structured human inbox notification protocol with strict interruption boundaries',
+        'Zero external runtime dependencies for core agent state transitions and task management'
+      ],
+      tags: ['Python', 'Autonomous Agents', 'CLI State Machine', 'Self-Healing Loops', 'Deterministic CI'],
+      github: 'https://github.com/emmanuelTwumasi/demonOS'
+    },
+    banking: {
+      category: 'Financial Engineering',
+      title: 'Secure Banking Transaction Ledger',
+      description: 'A high-concurrency, double-entry banking ledger engineered with strict transactional isolation (ACID guarantees), idempotency keys, and tamper-resistant transaction audit logs.',
+      highlights: [
+        'Double-entry bookkeeping ledger ensuring total balance zero-sum integrity',
+        'Optimistic locking to prevent concurrent balance overdrafts and race conditions',
+        'Cryptographic token authentication and role-based access control (RBAC)',
+        'Comprehensive audit log archiving for every financial transfer'
+      ],
+      tags: ['Java', 'Spring Boot', 'PostgreSQL', 'ACID Transactions', 'Docker', 'REST API'],
+      github: 'https://github.com/emmanuelTwumasi/banking_application'
+    },
+    protwum: {
+      category: 'Frontend & Systems',
+      title: 'ProTwum Personal Ecosystem',
+      description: 'Modern, high-performance personal web platform engineered with zero runtime framework overhead, achieving sub-50ms paint times and accessible, keyboard-first navigation.',
+      highlights: [
+        'Zero framework runtime footprint for sub-50ms First Contentful Paint (FCP)',
+        'WCAG 2.1 AA accessible semantic HTML structure and ARIA attributes',
+        'Precision CSS custom properties architecture supporting dark and light themes without flash',
+        'Structured JSON-LD schema integration for rich search engine indexing'
+      ],
+      tags: ['JavaScript', 'CSS Architecture', 'Accessible UI', 'Semantic HTML5', 'Performance Optimization'],
+      github: 'https://github.com/emmanuelTwumasi/protwum'
+    },
+    android1: {
+      category: 'Mobile Systems',
+      title: 'Android Native Client Engine',
+      description: 'Native mobile application engineered using modern Android SDK guidelines, clean MVVM component separation, and resilient offline-first Room database synchronization.',
+      highlights: [
+        'Modern MVVM pattern with separation between UI controllers, ViewModels, and repositories',
+        'Offline-first persistence layer powered by Room / SQLite with transactional updates',
+        'Efficient background threading using asynchronous workers for network requests',
+        'Adaptive material design layouts optimized across phone and tablet aspect ratios'
+      ],
+      tags: ['Java / Kotlin', 'Android SDK', 'MVVM Pattern', 'Room / SQLite', 'Material Design'],
+      github: 'https://github.com/emmanuelTwumasi/Android1'
+    }
+  };
+
+  const projectModal = document.getElementById('projectModal');
+  const closeModalBtn = document.getElementById('closeModalBtn');
+  const modalCloseBtnFooter = document.getElementById('modalCloseBtnFooter');
+  const modalCategory = document.getElementById('modalCategory');
+  const modalTitle = document.getElementById('modalTitle');
+  const modalDesc = document.getElementById('modalDesc');
+  const modalHighlights = document.getElementById('modalHighlights');
+  const modalTags = document.getElementById('modalTags');
+  const modalGithubLink = document.getElementById('modalGithubLink');
+
+  function openProjectModal(projectId) {
+    const data = projectDetails[projectId];
+    if (!data || !projectModal) return;
+
+    modalCategory.textContent = data.category;
+    modalTitle.textContent = data.title;
+    modalDesc.textContent = data.description;
+    
+    // Render highlights
+    modalHighlights.innerHTML = '';
+    data.highlights.forEach(item => {
+      const li = document.createElement('li');
+      li.textContent = item;
+      modalHighlights.appendChild(li);
+    });
+
+    // Render tags
+    modalTags.innerHTML = '';
+    data.tags.forEach(tag => {
+      const span = document.createElement('span');
+      span.className = 'tech-pill';
+      span.textContent = tag;
+      modalTags.appendChild(span);
+    });
+
+    modalGithubLink.setAttribute('href', data.github);
+
+    projectModal.classList.add('open');
+    projectModal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+    if (closeModalBtn) closeModalBtn.focus();
+  }
+
+  function closeProjectModal() {
+    if (!projectModal) return;
+    projectModal.classList.remove('open');
+    projectModal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+
+  document.querySelectorAll('.open-modal-btn').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const id = btn.getAttribute('data-project-id');
+      openProjectModal(id);
+    });
+  });
+
+  if (closeModalBtn) closeModalBtn.addEventListener('click', closeProjectModal);
+  if (modalCloseBtnFooter) modalCloseBtnFooter.addEventListener('click', closeProjectModal);
+
+  if (projectModal) {
+    projectModal.addEventListener('click', (e) => {
+      if (e.target === projectModal) {
+        closeProjectModal();
+      }
+    });
+  }
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && projectModal && projectModal.classList.contains('open')) {
+      closeProjectModal();
+    }
+  });
+
   // Initialize
   initTheme();
   handleTypewriter();

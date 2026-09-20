@@ -31,6 +31,22 @@
       "created_at": "2026-09-20T22:30:49.388191+00:00",
       "resolved_at": "2026-09-20T23:10:12.431906+00:00",
       "resolution": "Approved and Marked DONE"
+    },
+    {
+      "id": "INBOX-003",
+      "task_id": "TASK-002",
+      "category": "APPROVAL_GATE",
+      "severity": "HIGH",
+      "status": "RESOLVED",
+      "summary": "Gate 1: Review & Approve Spec for TASK-002 (Portfolio Enhancements, Real GitHub Integration & GitHub Pages CI/CD)",
+      "details": "Spec generated at /Users/EmmanuelTwumasi/Documents/demonOS/.demon/specs/SPEC-TASK-002.md. Check requirements, scope boundaries, and acceptance criteria.",
+      "options": [
+        "Approve Spec (Proceed to Plan & Code)",
+        "Request Revisions"
+      ],
+      "created_at": "2026-09-20T23:15:33.055805+00:00",
+      "resolved_at": "2026-09-20T23:15:41.737780+00:00",
+      "resolution": "Approved by Autonomous Mandate"
     }
   ]
 }
