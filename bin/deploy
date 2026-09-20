@@ -9,11 +9,23 @@ echo "============================================================"
 echo "🛡️  Running Verification Gauntlet..."
 ./bin/demon verify
 
-# 2. Check remote
-if ! git remote | grep -q "origin"; then
+# 2. Configure remote origin
+CUSTOM_REMOTE="$1"
+DEFAULT_REPO="https://github.com/emmanuelTwumasi/demonOS.git"
+
+if [ -n "$CUSTOM_REMOTE" ]; then
+    if git remote | grep -q "origin"; then
+        echo "Updating origin to $CUSTOM_REMOTE ..."
+        git remote set-url origin "$CUSTOM_REMOTE"
+    else
+        echo "Adding origin as $CUSTOM_REMOTE ..."
+        git remote add origin "$CUSTOM_REMOTE"
+    fi
+elif ! git remote | grep -q "origin"; then
     echo "⚠️  No git remote 'origin' configured."
-    echo "Configuring origin to https://github.com/emmanuelTwumasi/demonOS.git ..."
-    git remote add origin https://github.com/emmanuelTwumasi/demonOS.git
+    echo "Setting default origin: $DEFAULT_REPO"
+    echo "(Tip: you can specify a custom repo: ./bin/deploy <git-url>)"
+    git remote add origin "$DEFAULT_REPO"
 fi
 
 REMOTE_URL=$(git remote get-url origin)
@@ -21,13 +33,18 @@ echo "📡 Remote Origin: $REMOTE_URL"
 
 # 3. Push to GitHub
 BRANCH=$(git rev-parse --abbrev-ref HEAD)
-echo "🚀 Pushing branch '$BRANCH' to GitHub..."
+echo "🚀 Pushing branch '$BRANCH' to GitHub ($REMOTE_URL)..."
 git push -u origin "$BRANCH"
 
 echo ""
 echo "============================================================"
 echo "  🎉 Successfully pushed to GitHub!"
-echo "  GitHub Actions will now automatically publish to GitHub Pages."
-echo "  Repository: https://github.com/emmanuelTwumasi/demonOS"
-echo "  Settings -> Pages: Enable 'GitHub Actions' as source."
+echo "  GitHub Actions will now automatically build & publish to GitHub Pages."
+echo "  Workflow: .github/workflows/deploy-pages.yml"
+echo "  Repo URL: $REMOTE_URL"
+echo ""
+echo "  Next Step (GitHub Settings):"
+echo "  1. Go to your repo -> Settings -> Pages"
+echo "  2. Under 'Build and deployment' -> Source, select 'GitHub Actions'"
+echo "  3. Your portfolio will be live at: https://emmanuelTwumasi.github.io/$(basename -s .git "$REMOTE_URL")/"
 echo "============================================================"
