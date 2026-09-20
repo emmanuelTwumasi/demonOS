@@ -1,0 +1,17 @@
+{
+  "name": "demonOS",
+  "version": "1.0.0",
+  "description": "Autonomous Agent Workflow System",
+  "gauntlet": {
+    "test_command": "python3 -m unittest discover -s tests -p '*_test.py'",
+    "lint_command": "python3 -m py_compile $(git ls-files '*.py')",
+    "typecheck_command": "",
+    "build_command": ""
+  },
+  "max_auto_repair_attempts": 3,
+  "auto_advance_stages": false,
+  "human_approval_gates": [
+    "PENDING_SPEC_APPROVAL",
+    "PENDING_REVIEW_APPROVAL"
+  ]
+}

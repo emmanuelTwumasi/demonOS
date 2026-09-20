@@ -1,0 +1,14 @@
+{
+  "project": "demonOS",
+  "updated_at": "2026-09-20T22:16:30.216355+00:00",
+  "stages": [
+    "BACKLOG",
+    "SPEC_DRAFTING",
+    "PENDING_SPEC_APPROVAL",
+    "IN_PROGRESS",
+    "IN_REVIEW",
+    "PENDING_REVIEW_APPROVAL",
+    "DONE"
+  ],
+  "tasks": []
+}
